@@ -1,0 +1,28 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="<?= CSS; ?>/tutorial.css" />
+    </head>
+    <body>
+        <fieldset>
+            <legend><h1>Components</h1></legend>
+            <a href="index">Voltar</a>
+            <p>S&atilde;o classes que auxiliam os controllers.</p>
+            Existem componentes que s&atilde;o do core e componentes que s&atilde;o da aplica&ccedil;&atilde;o. 
+            <br/>Em ambos os casos utilizar 
+            o componente requer configura&ccedil;&atilde;o que dever&aacute; ser disponibiliada pelo desenvolvedor do mesmo.<br/>
+            Sendo que o componente da aplica&ccedil;&atilde;o deve ser totalmente independente do framework e deve ser adicionado
+            no controlador que ser&aacute; utilizado.<br/>
+            Caso o componente seja para o core ele deve ser inserido no controlador do core 'ControllerAtan' ou anexado ao framework de modo que ele esteja dispon&iacute;vel por padr&atilde;o<br/>
+            para todos os controladores.
+        </fieldset>
+    </body>
+</html>

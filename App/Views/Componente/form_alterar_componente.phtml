@@ -1,0 +1,27 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+    die("Acesso negado");
+}
+if(isset($this->dados)) {
+?>
+<div class="conteudo">
+    <h1>Alterar de Componente</h1>
+    <div id="msg"></div>
+    <br/><br/>
+    <form id="form" name="form" method="POST">
+     <label>Código:</label>
+     <input type="text" id="id_componente" name="id_componente" class="campos_obrigatorio" value="<?php echo $this->dados['id_componente']; ?>" readonly/>
+     <br/>
+     <label>Nome:</label>
+     <input type="text" id="nome" name="nome" class="campos_obrigatorio" value="<?php echo $this->dados['nome']; ?>"/>
+        <span id="msg_nome" class="msg_erro"></span><br/>
+        <label>Dt. Criação:</label>
+        <input type="text" size="10px" id="data_criacao" name="data_criacao" class="campos_obrigatorio data data_mascara" value="<?php echo $this->dados['data_criacao']; ?>"/>
+        <span id="msg_data_criacao" class="msg_erro"></span>
+        <br/><br/>
+        <div class="botao_alterar">Alterar</div>
+        <div class="botao_voltar">Voltar</div>
+    </form>
+    <br/>
+</div>
+<?php } ?>

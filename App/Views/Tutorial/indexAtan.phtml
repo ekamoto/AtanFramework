@@ -1,0 +1,68 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="<?= CSS; ?>/tutorial.css" />
+    </head>
+    <body>
+        <fieldset>
+            <legend><h1>IndexAtan</h1></legend>
+
+            <a href="index">Voltar</a>
+            <p>
+                Antes de passar por qualquer arquivo ele passa por esse arquivo.<br/>
+                <strong>Esse arquivo &eacute; respons&aacute;vel por:</strong>
+            </p>
+            <ul>
+                <li>
+                    >>Definir qual aplicação será a utilizada.
+                </li>
+                <li>
+                    >>Definir a pasta do projeto.
+                </li>
+                <li>
+                    >>Definir constantes:
+                    <ul>
+                        <li>CONTROLLERS <i>(Caminho dos controllers da aplica&ccedil;&atilde;o)</i></li>
+                        <li>VIEWS <i>(Caminho das views da aplica&ccedil;&atilde;o)</i></li>
+                        <li>MODELS <i>(Caminho dos models da aplica&ccedil;&atilde;o)</i></li>
+                        <li>HELPERS_CORE <i>(Caminho dos helpers do core)</i></li>
+                        <li>HELPERS_APP <i>(Caminho dos helpers da aplica&ccedil;&atilde;o)</i></li>
+                        <li>MODULO_CORE <i>(Caminho dos componentes do core)</i></li>
+                        <li>COMPONENTS_APP <i>(Caminho dos componentes da aplica&ccedil;&atilde;o)</i></li>
+                        <li>REQUEST_URI <i>(P&aacute;gina atual)</i></li>
+                        <li>LAYOUT <i>(Caminho do layout da aplica&ccedil;&atilde;o)</i></li>
+                        <li>CSS <i>(Caminho do css da aplica&ccedil;&atilde;o)</i></li>
+                        <li>LOG <i>(Caminho da pasta onde vai ser gravado os logs)</i></li>
+                        <li>URL <i>(Caminho absoluto até o projeto)</i></li>
+                    </ul>
+                </li>
+                <li>
+                    >>Incluir classe System.
+                </li>
+                <li>
+                    >>Incluir classe ControllerAtan.
+                </li>
+                <li>
+                    >>Incluir classe ModelAtan.
+                </li>
+                <li>
+                    >>Fazer autoLoad nas classe que precisam ficar disponíveis quando necessário.
+                </li>
+                <li>
+                    >>Ativar o componente de log de erro
+                </li>
+                <li>
+                    >>Ativar system para processar url
+                </li>
+            </ul>
+        </fieldset>
+    </body>
+</html>

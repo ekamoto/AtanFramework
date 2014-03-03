@@ -1,0 +1,32 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<fieldset>
+    <legend>Gerador de c&oacute;digo</legend>
+    <?php
+
+//    echo "Tira o comentário do código para gerar.";
+//    
+//    $dados = array();
+//    $dados['modelo'] = 1;
+//    $dados['modulo'] = "admin";
+//    $dados['autor'] = "Leandro Shindi Ekamoto";
+//    $dados['descricao_controller'] = "Classe para gerenciar o administrativo do sistema ou site";
+//    $dados['descricao_modelo'] = "Model administrativo";
+//    $dados['nome_view'] = "index";
+//
+//    $retorno = $this->getModulo($dados);
+//
+//    if($retorno) {
+//         echo "Código gerado com sucesso!";
+//    } else {
+//         echo "Erro ao gerar código!";
+//    }
+
+    ?>
+</fieldset>

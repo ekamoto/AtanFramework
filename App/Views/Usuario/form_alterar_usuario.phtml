@@ -1,0 +1,64 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+    die("Acesso negado");
+}
+if(isset($this->dados)) {
+    
+    $grupos = $this->dados['grupos'];
+    $this->dados = $this->dados[0];
+    
+    
+?>
+<div class="conteudo">
+    <h1>Alterar de Usuário</h1>
+    <div id="msg"></div>
+    <br/><br/>
+    <form id="form" name="form" method="POST">
+        <label>C&oacute;digo:</label>
+        <input type="text" id="id_usuario" name="id_usuario" value="<?php echo $this->dados['id_usuario'];?>" readonly/><br/>
+        <label>Nome:</label>
+        <input type="text" id="nome" name="nome" value="<?php echo $this->dados['nome'];?>" class="campos_obrigatorio"/>
+        <span id="msg_nome" class="msg_erro"></span><br/>
+        <label>SobreNome:</label>
+        <input type="sobrenome" id="sobrenome" name="sobrenome" value="<?php echo $this->dados['sobrenome'];?>" class="campos_obrigatorio"/>
+        
+        <br/>
+        <label>Grupo:</label>&nbsp;
+        <select id="id_grupo" name="id_grupo" class="campos_obrigatorio">
+            <?php 
+            if(isset($grupos)):
+                foreach ($grupos as $grupo):
+            ?>
+            <option value="<?php echo $grupo['id_grupo']; ?>">
+                <?php echo $grupo['nome']; ?>
+            </option>
+            <?php endforeach; endif; ?>
+        </select>
+        <span id="msg_id_grupo" class="msg_erro"></span><br/>
+        
+        <span id="msg_sobrenome" class="msg_erro"></span><br/>
+        <label>Login:</label>
+        <input type="text" id="login" name="login" value="<?php echo $this->dados['login'];?>" class="campos_obrigatorio"/>
+        <span id="msg_login" class="msg_erro"></span><br/>
+        <label>Senha:</label>
+        <input type="password" id="senha" name="senha" value="<?php echo $this->dados['senha'];?>" class="campos_obrigatorio"/>
+        <span id="msg_senha" class="msg_erro"></span><br/>
+        <label>E-mail:</label>
+        <input type="text" id="email" name="email" value="<?php echo $this->dados['email'];?>" class="campos_obrigatorio"/>
+        <span id="msg_email" class="msg_erro"></span><br/>
+        <label>Dt.Nasc.:</label>
+        <input type="text" id="data_nascimento" name="data_nascimento" size="10px" value="<?php echo $this->dados['data_nascimento'];?>" class="campos_obrigatorio data_mascara"/>
+        <span id="msg_data_nascimento" class="msg_erro"></span><br/>
+        <label>Ativo:</label>&nbsp;
+        <select id="ativado" name="ativado" class="campos_obrigatorio">
+            <option value="1" <?php echo $this->dados['ativado']?'selected':'';?>>Sim</option>
+            <option value="0" <?php echo !$this->dados['ativado']?'selected':'';?>>N&atilde;o</option>
+        </select>
+        <span id="msg_ativado" class="msg_erro"></span><br/>
+        <br/><br/>
+        <div class="botao_alterar">Alterar</div>
+        <div class="botao_voltar">Voltar</div>
+    </form>
+    <br/>
+</div>
+<?php } ?>

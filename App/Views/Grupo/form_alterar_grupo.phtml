@@ -1,0 +1,25 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+    die("Acesso negado");
+} 
+
+if(isset($this->dados)) {
+?>
+<div class="conteudo">
+    <h1>Cadastro de grupo</h1>
+    <div id="msg"></div>
+    <br/><br/>
+    <form id="form" name="form" method="POST">
+        <label>Código:</label>
+        <input type="text" id="id_grupo" name="id_grupo" value="<?php echo $this->dados['id_grupo']?>" readonly />
+        <br/>
+        <label>Nome:</label>
+        <input type="text" id="nome" name="nome" value="<?php echo $this->dados['nome']?>" class="campos_obrigatorio"/>
+        <span id="msg_nome" class="msg_erro"></span>
+        <br/><br/>
+        <div class="botao_alterar">Alterar</div>
+        <div class="botao_voltar">Voltar</div>
+    </form>
+    <br/>
+</div>
+<?php } ?>

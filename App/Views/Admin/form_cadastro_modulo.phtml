@@ -1,0 +1,35 @@
+<div class="conteudo">
+    <h1>Cadastro de módulo</h1>
+    <form id="form_1" name="form_1" method="POST">
+        <div id="msg"></div>
+        <br />
+        <h2>Observação: dar permissão para as pastas Model, View e Controller</h2>
+        <br />
+        <label>App:</label>
+        <input type="text" name="app" id="app"/>(Em qual aplicação vai ser gerado o model)
+        <br />
+        <label>Controller:</label>
+        <input type="text" name="controller" id="controller"/>(Nome do controlador)
+        <br />
+        <label>Autor:</label>
+        <input type="text" id="autor" name="autor"/>(Autor do módulo)
+        <br />
+        <label>D. Contr.:</label>
+        <input type="text" id="descricao_controller" name="descricao_controller"/>(Descrição do Controlador)
+        <br />
+        <label>D. Mod.:</label>
+        <input type="text" id="descricao_model" name="descricao_model"/>(Descrição do Modelo)
+        <br />
+        <label>P. View:</label>
+        <input type="checkbox" id="pasta_view" name="pasta_view"/>&nbsp;(Gerar pasta para View)
+        <br />
+        <label>Tabela:</label>
+        <input type="text" id="tabela" name="tabela" />(Tabela do banco de dados)
+        <br/>
+        <label>Nome V.:</label>
+        <input type="text" id="nome_view" name="nome_view" />&nbsp;(Nome da View)
+        <br/><br/>
+        <div class="botao_cadastrar" id="gerar_modulo" name="gerar_modulo">Cadastrar</div>
+        <br/><br/>
+    </form>
+</div>

@@ -1,0 +1,52 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="<?= CSS; ?>/tutorial.css" />
+    </head>
+    <body>
+        <fieldset>
+            <legend><h1>.Htacess</h1></legend>
+
+            <a href="index">Voltar</a>
+            <p>
+                <strong>#Ativando mod_rewrite</strong><br/>
+                RewriteEngine on<br/>
+                <strong>#Definindo pasta base do projeto</strong><br/>
+                RewriteBase /Atan<br/>
+                <strong>#Redefinindo index</strong><br/>
+                DirectoryIndex indexAtan.php<br/>
+                <strong>#Caso for chamado o arquivo direto</strong><br/>
+                RewriteCond %{SCRIPT_FILENAME} !-f<br/>
+                RewriteCond %{SCRIPT_FILENAME} !-d<br/>
+                RewriteRule ^(.*)$ indexAtan.php?conteudo_url=$1<br/>
+            </p>
+
+            <p>
+                <strong>Entendendo o c&oacute;digo:</strong>
+            </p>
+
+            <strong>RewriteEngine On</strong><br/>
+            Ativa o suporte &agrave; reescrita<br/><br/>
+
+            <strong>RewriteBase /Atan</strong>
+            Definindo diret&oacute;rio base<br/><br/>
+
+            <strong>RewriteCond %{SCRIPT_FILENAME} !-f</strong><br/>
+            Não aplica a condi&ccedil;&atilde;o para arquivos<br/><br/>
+
+            <strong>RewriteCond %{SCRIPT_FILENAME} !-d</strong><br/>
+            N&atilde;o aplica a condi&ccedil;&atilde;o para diret&oacute;rios<br/><br/>
+
+            <strong>RewriteRule ^(.*)$ indexAtan.php?conteudo_url=$1</strong><br/>
+            Regra de reescrita onde qualquer string (.*) ap&oacute;s a pasta, onde estiver o .htaccess, ser&aacute; interpretado por <strong>indexAtan.php</strong> passado na vari&aacute;vel <strong>conteudo_url</strong>
+        </fieldset>
+    </body>
+</html>

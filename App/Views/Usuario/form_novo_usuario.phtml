@@ -1,0 +1,63 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+    die("Acesso negado");
+}
+
+if (isset($this->dados['grupos']) && !empty($this->dados['grupos'])) {
+    $grupos = $this->dados['grupos'];
+}
+?>
+<div class="conteudo">
+    <h1>Cadastro de Usuário</h1>
+    <div id="msg"></div>
+    <br/><br/>
+    <form id="form" name="form" method="POST">
+        <!--_____________________Nome_____________________-->
+        <label>Nome:</label>
+        <input type="nome" id="nome" name="nome" class="campos_obrigatorio"/>
+        <span id="msg_nome" class="msg_erro"></span><br/>
+        <!--___________________SobreNome__________________-->
+        <label>SobreNome:</label>
+        <input type="sobrenome" id="sobrenome" name="sobrenome" class="campos_obrigatorio"/>
+        <span id="msg_sobrenome" class="msg_erro"></span><br/>
+        <!--_____________________Grupo____________________-->
+        <label>Grupo:</label>&nbsp;
+        <select id="id_grupo" name="id_grupo" class="campos_obrigatorio">
+            <?php 
+            if(isset($grupos)):
+                foreach ($grupos as $grupo):
+            ?>
+            <option value="<?php echo $grupo['id_grupo']; ?>">
+                <?php echo $grupo['nome']; ?>
+            </option>
+            <?php endforeach; endif; ?>
+        </select>
+        <span id="msg_id_grupo" class="msg_erro"></span><br/>
+        <!--_____________________Login____________________-->
+        <label>Login:</label>
+        <input type="text" id="login" name="login" class="campos_obrigatorio"/>
+        <span id="msg_login" class="msg_erro"></span><br/>
+        <!--_____________________Senha____________________-->
+        <label>Senha:</label>
+        <input type="password" id="senha" name="senha" class="campos_obrigatorio"/>
+        <span id="msg_senha" class="msg_erro"></span><br/>
+        <!--_____________________E-mail___________________-->
+        <label>E-mail:</label>
+        <input type="text" id="email" name="email" class="campos_obrigatorio"/>
+        <span id="msg_email" class="msg_erro"></span><br/>
+        <!--________________Data Nascimento_______________-->
+        <label>Dt.Nasc.:</label>
+        <input type="text" id="data_nascimento" name="data_nascimento" size="10px" class="campos_obrigatorio data_mascara"/>
+        <span id="msg_data_nascimento" class="msg_erro"></span><br/>
+        <!--____________________Ativo_____________________-->
+        <label>Ativo:</label>&nbsp;
+        <select id="ativado" name="ativado" class="campos_obrigatorio">
+            <option value="1">Sim</option>
+            <option value="0">N&atilde;o</option>
+        </select><span id="msg_ativado" class="msg_erro"></span>
+        <br/><br/>
+        <div class="botao_cadastrar">Cadastrar</div>
+        <div class="botao_voltar">Voltar</div>
+    </form>
+    <br/>
+</div>

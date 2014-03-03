@@ -1,0 +1,75 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+?>
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+        <title>Template1</title>
+        <?php
+        $this->includeCss($view);
+        $this->includeLibrariesCSS(
+                 array(
+                     "style.css",
+                     "jquery.cleditor.css"));
+        $this->includeLibrariesJS(
+                 array(
+                     "jquery-1.4.2.min.js",
+                     "jquery-ui-1.8.5.custom.min.js",
+                     "cufon-yui.js",
+                     "colaboratelight_400.font.js",
+                     "easytooltip.js",
+                     "jquery.tablesorter.min.js",
+                     "visualize.jquery.js",
+                     "iphone-style-checkboxes.js",
+                     "jquery.cleditor.min.js",
+                     "custom.js"));
+        $this->includeJs($view);
+        ?>
+    </head>
+    <body>
+        <div id="container">
+            <div id="bgwrap">
+                <div id="primary_left">
+                    <div id="logo">
+                        <img src="<?php echo $caminho_pasta_web_files; ?>/img/logo_ata.jpg" alt="" width="100%" height="100%" />
+                    </div> <!-- logo end -->
+                    <div id="menu"> <!-- navigation menu -->
+                        <ul>
+                            <li class="current"><a href="#" class="dashboard"><img src="<?php echo $caminho_pasta_web_files; ?>/css/assets/icons/small_icons_3/dashboard.png" alt="" /><span class="current">Dashboard</span></a></li>
+                            <li><a href="#"><img src="<?php echo $caminho_pasta_web_files; ?>/css/assets/icons/small_icons_3/posts.png" alt="" /><span>Posts</span></a></li>
+                            <li><a href="#"><img src="<?php echo $caminho_pasta_web_files; ?>/css/assets/icons/small_icons_3/media.png" alt="" /><span>Media</span></a>
+                                <ul>
+                                    <li><a href="#">Upload</a></li>
+                                    <li><a href="#">Add new</a></li>
+                                    <li><a href="#">Categories</a></li>
+                                </ul>
+                            </li>
+                            <li class="tooltip" title="Menu items can also have a tooltip!"><a href="#"><img src="<?php echo $caminho_pasta_web_files; ?>/css/assets/icons/small_icons_3/notes.png" alt="" /><span>My notes</span></a></li>
+                            <li><a href="#" ><img src="<?php echo $caminho_pasta_web_files; ?>/css/assets/icons/small_icons_3/coin.png" alt="" /><span>Earnings</span></a></li>
+                            <li><a href="#" ><img src="<?php echo $caminho_pasta_web_files; ?>/css/assets/icons/small_icons_3/users.png" alt="" /><span>Users</span></a></li>
+                            <li><a href="#" ><img src="<?php echo $caminho_pasta_web_files; ?>/css/assets/icons/small_icons_3/settings.png" alt="" /><span>Settings</span></a></li>
+                        </ul>
+                    </div> <!-- navigation menu end -->
+                </div> <!-- sidebar end -->
+                <div id="primary_right">
+                    <div class="inner">
+                        <h1>Utilizando template</h1>
+                        <h2>
+                            <a href="index/deslogar"> Clique aqui para Deslogar</a>
+                        </h2>
+                        <?php
+                        if(isset($view) && !empty($view)) {
+                            $this->getView($view);
+                        }
+                        ?>
+                    </div> <!-- inner -->
+                </div> <!-- primary_right -->
+            </div> <!-- bgwrap -->
+        </div> <!-- container -->
+    </body>
+</html>

@@ -1,0 +1,5 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+    die("Acesso negado");
+}
+?>

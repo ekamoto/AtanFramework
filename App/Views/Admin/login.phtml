@@ -1,0 +1,20 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+    die("Acesso negado");
+}
+?>
+<form action="<?= URL . '/admin'; ?>" method="post" name="form1" id="form1" class="push_1 grid_6 alpha omega">
+    <label>Nome de Usuário</label>
+    <input name="login" type="text" id="login" class="input-largex" value="robson" size="20" maxlength="40" />
+    <label>Senha</label>
+    <input name="senha" type="password" id="senha" size="20" value="123" maxlength="40" class="input-largex" />
+    <label class="checkbox alpha grid_3">
+        <input type="checkbox" /> Lembre-me
+    </label>
+    <table>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+    <button type="submit" class="btn btn-large pull-right">Entrar</button>
+</form>

@@ -1,0 +1,70 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+   die("Acesso negado");
+}
+?>
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8" />
+      <title>Admin</title>
+      <?php
+      $this->includeCss($view);
+      $this->includeLibrariesCSS(
+              array(
+                  "styles.css",
+                  "humanity/jquery-ui-1.10.2.custom.css"));
+      $this->includeLibrariesJS(
+              array(
+                  "jquery-1.8.2.min.js",
+                  "jquery.blockUI.js",
+                  "jquery.blockUI_functions.js",
+                  "jquery-ui-1.10.2.custom.js",
+                  "jquery.maskedinput-1.2.2.js",
+                  "scripts.js"));
+      $this->includeJs($view);
+      ?>
+      <script type="text/javascript" ></script>
+   </head>
+   <body>
+      <input type="hidden" id="URL" name="URL" value="<?php echo URL; ?>"/>
+      <header id="top">
+         <div class="header">
+            <p>Administrador de Conteúdo</p>
+         </div>
+         <div class="user">
+            <div class="user-image">
+               <a href="#"></a>
+            </div>
+            <?php if (isset($_SESSION['login'])) { ?>
+               <p>Bem vindo,&nbsp;&nbsp;<?php echo ucwords($_SESSION['login']); ?>&nbsp;</p>
+            <?php } else { ?>
+               <p>Bem vindo,&nbsp;&nbsp;Invasor do sistema.</p>
+            <?php } ?>
+         </div>
+         <div class="clearfix"> </div>
+      </header> 
+      <div id="main-content">
+         <div class="left-column">
+            <div class="foto" >
+               <img src="<?php echo $caminho_pasta_web_files; ?>/img/logo_ata.png" width="150px" height="140px" />
+            </div>
+            <div class="menu">
+               <ul>
+                  <li><a href="<?php echo URL . '/admin/listar-usuarios'; ?>">>Usu&aacute;rios</a></li>
+                  <li><a href="<?php echo URL . '/admin/listar-grupos'; ?>">>Grupo</a></li>
+                  <li><a href="<?php echo URL . '/admin/listar-componentes'; ?>">>Componentes</a></li>
+                  <li><a href="#">>Configurações</a></li>
+                  <li><a href="<?php echo URL . '/admin/formCadastroModulo'; ?>">>Cadastro Módulo</a></li>
+                  <li><a href="<?php echo URL . '/admin/deslogar'; ?>" >>Deslogar</a></li>
+               </ul>
+            </div>
+         </div> 
+         <div class="right-column">
+            <div class="content-padding">
+               <?php $this->getView($view); ?>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,9 @@
+#Ativando mod_rewrite
+RewriteEngine on
+RewriteBase /atan
+DirectoryIndex indexAtan.php
+#Caso for chamado o arquivo direto
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ indexAtan.php?conteudo_url=$1
+IndexIgnore *

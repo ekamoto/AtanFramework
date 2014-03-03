@@ -1,0 +1,18 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head>
+        <title>Não Logado</title>
+    </head>
+    
+    <body>
+        <p>Não foi Possivel Logar com o usuario <strong><?=$view_login?></strong> e com a senha <strong><?=$view_senha?></strong></p>
+        <p><a href="logar">Tentar novamente</a></p>
+    </body>
+</html>

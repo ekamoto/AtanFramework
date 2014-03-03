@@ -1,0 +1,33 @@
+a:link {
+    text-decoration: none;
+    color: black
+}
+a:active {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;color: black
+}
+a:hover {
+    text-decoration: none;
+    color: red}
+li {
+    list-style-type:none;
+}
+body {
+    background-color: #F2F2F2;
+    font: 83% Copperplate;
+    line-height: 150%;
+    color: black;
+    width: 70%;
+    text-align: justify;
+}
+h1 {
+    color: black;
+}
+p {
+    font-size: 14px;
+}
+fieldset {
+    background-color: #CCC;
+}

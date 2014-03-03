@@ -1,0 +1,165 @@
+/* ---------- RESET ---------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    font-family: Times New Roman, serif; 
+}
+
+/** Topo **/
+#top {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background-color: #696969;
+}
+
+#top .header { 
+    position: relative;
+    float: left;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+#top .user {
+    position: relative;
+    float: right;
+    margin-right:  0px;
+    margin-top: 20px;
+}
+
+/** Conteúdo Principal **/
+#main-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.left-column {
+    position: absolute;
+    background-color: #A9A9A9;
+    width: 10%;
+    height: 100%;
+
+}
+
+.left-column .foto {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 0%;
+}
+
+.left-column .menu {
+    position: absolute;
+    width: 90%;
+    height: 40%;
+    margin-top: 170px;
+    margin-left: 5px;
+}
+
+.right-column {
+    position: absolute;
+    margin-left: 10%;
+    background-color: #F2F2F2;
+    height: 100%;
+    width: 90%;
+}
+
+/** Rodapé **/
+/*
+footer {
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    background-color: #808080;
+}
+*/
+
+.left {
+    float: left;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.right {
+    float: right;
+    margin-right:  10px;
+    margin-top: 20px;
+}
+
+/*********************************Elementos*****************************/
+
+h1 {
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+p {
+    color: #D3D3D3;
+}
+
+a { 
+    color: black;
+    text-decoration: none;
+}
+
+h2 {
+    color: black;
+}
+
+label,  input {
+    display: block;
+    float: left;
+    margin-left: 1%;
+    
+}
+
+label {	
+    text-align: right;
+    width: 10%;
+    padding-right: 2%;
+    padding-bottom: 1%;
+}
+
+fieldset {
+    /*	border: solid 1px #000;*/
+    width: 50%;
+    margin-top: 1%;
+    margin-left: 1%;
+    background-color: #A9A9A9;
+}
+
+fieldset legend{
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+br {
+    clear: left;
+}

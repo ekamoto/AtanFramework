@@ -1,0 +1,73 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="<?= CSS; ?>/tutorial.css" />
+    </head>
+    <body>
+        <fieldset>
+            <legend><h1>classSystem</h1></legend>
+            <a href="index">Voltar</a>
+            <p>
+                &Eacute; a <strong>classe principal</strong> respons&aacute;vel por <strong>converter a url em controller, action e params</strong>
+                Toda vez que uma url &eacute; requisitada ele passa pelo arquivo indexAtan.php e no final dele &eacute; instanciado essa classe
+                e chamado o m&eacute;todo run() que inclui o controlador e chama a action.<br/>
+            </p>
+            <strong>Possue os m&eacute;todos:</strong>
+            <ul>
+                <li>
+                    >>setUrl <i>(Pega a url passada por get $_GET['conteudo_url'] que foi direcionada pelo htacess)</i>
+                </li>
+                <li>
+                    >>getUrl <i>(Retorno a url)</i>
+                </li>
+                <li>
+                    >>removeUltPosVazArr <i>(Se a ultima posi&ccedil;&atilde;o do array for vazia remove)</i>
+                </li>
+                <li>
+                    >>setExplode <i>(Converte url em array utilizando a fun&ccedil;&atilde;o explode() e seta na vari&aacute;vel do objeto $this->_explode)</i>
+                </li>
+                <li>
+                    >>setController <i>(Pega a primeira posi&ccedil;&atilde;o do array $this->_explode que representa o controller e seta na vari&aacute;vel $this->_controller)</i>
+                </li>
+                <li>
+                    >>getController <i>(Retorna o controller)</i>
+                </li>
+                <li>
+                    >>setAction <i>(Pega a segunda posi&ccedil;&atilde;o do array $this->_explode que representa a action e seta na vari&aacute;vel $this->_action)</i>
+                </li>
+                <li>
+                    >>getAction <i>(Retorno a action)</i>
+                </li>
+                <li>
+                    >>setParams <i>(Remove controller e action do array e constroi um array com parametros que foram passados na url, se tiver)</i>
+                </li>
+                <li>
+                    >>getParams <i>(Retorna par&acirc;metros)</i>
+                </li>
+                <li>
+                    >>getParamsImplode <i>(Retorna par&acirc;metros no formato string separados por v&iacute;rgula)</i>
+                </li>
+                <li>
+                    >>run <i>(Inclui o controlador, inst&acirc;ncia o objeto controlador e chama a action)</i>
+                </li>
+            </ul>
+            <p>
+                <strong>Exemplo:</strong><br/>
+                http://localhost/trunk/tutorial/classSystem/nome/leandro/email/ekamoto.leandro@gmail.com<br/><br/>
+                <strong>Host: </strong>localhost<br/>
+                <strong>Projeto: </strong>trunk<br/>
+                <strong>Controller: </strong>tutorial <i>(tutorialController.php)</i><br/>
+                <strong>Action: </strong>classSystem <i>(m&eacute;todo classSystem())</i><br/>
+                <strong>Parametros: </strong>Array com par&acirc;metros na vari&aacute;vel $_params<br/>
+            </p>
+        </fieldset>
+    </body>
+</html>

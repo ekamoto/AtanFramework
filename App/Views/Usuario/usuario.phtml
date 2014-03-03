@@ -1,0 +1,56 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+    die("Acesso negado");
+}
+
+//print_r($this->dados);
+//die;
+?>
+<div class="conteudo">
+    <h1>Usu&aacute;rios</h1>
+    <br/>
+    <table class="tabela">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Login</th>
+                <th>E-mail</th>
+                <th>Nome</th>
+                <th>SobreNome</th>
+                <th>Grupo</th>
+                <th>Dt.Nasc.</th>
+                <th>Dt.Ativ.</th>
+                <th>Ativo</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (isset($this->dados) && !empty($this->dados)):
+                foreach ($this->dados as $usuario):
+                    ?>
+                    <tr>
+                        <td><?php echo $usuario['id_usuario']; ?></td>
+                        <td><?php echo $usuario['login']; ?></td>
+                        <td><?php echo $usuario['email']; ?></td>
+                        <td><?php echo $usuario['nome']; ?></td>
+                        <td><?php echo $usuario['sobrenome']; ?></td>
+                        <td><?php echo $usuario['nome_grupo']; ?></td>
+                        <td><?php echo $usuario['data_nascimento']; ?></td>
+                        <td><?php echo $usuario['data_ativacao']; ?></td>
+                        <td><?php echo $usuario['ativado']; ?></td>
+                        <td>
+                            <a href="<?php echo URL . '/admin/editar-usuario/id/' . $usuario['id_usuario']; ?>">Editar</a>/
+                            <a href="<?php echo URL . '/admin/deletar-usuario/id/' . $usuario['id_usuario']; ?>">Deletar</a>
+                        </td>
+                    </tr>
+                <?php endforeach;
+            endif; ?>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+    <br/>
+    <div class="botao_novo">Novo</div>
+    <br/><br/>
+</div>

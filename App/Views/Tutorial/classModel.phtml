@@ -1,0 +1,46 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="<?= CSS; ?>/tutorial.css" />
+    </head>
+    <body>
+        <fieldset>
+            <legend>
+                <h1>classModel</h1>
+            </legend>
+            <a href="index">Voltar</a>
+            <p>
+                Representa a tabela do banco de dados, nela temos uma conex&atilde;o PDO e os m&eacute;todos gen&eacute;ricos: insert, read, update, delete.
+            </p>
+            <strong>Possue os m&eacute;todos:</strong>
+            <ul>
+                <li>
+                    >>__construct <i>(Instancia PDO)</i>
+                </li>
+                <li>
+                    >>insert <i>(Insert gen&eacute;rico)</i>
+                </li>
+                <li>
+                    >>read <i>(Read gen&eacute;rico)</i>
+                </li>
+                <li>
+                    >>update <i>(Update gen&eacute;rico)</i>
+                </li>
+                <li>
+                    >>delete <i>(Delete gen&eacute;rico)</i>
+                </li>
+            </ul>
+            <p>
+                Esses m&eacute;todos gen&eacute;ricos estar&atilde;o dispon&iacute;veis para qualquer controlador que tiver model devidamente configurado.
+            </p>
+        </fieldset>
+    </body>
+</html>

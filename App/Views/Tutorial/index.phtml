@@ -1,0 +1,100 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="<?= CSS; ?>/tutorial.css" />
+        <script type='text/javascript' src='<?= LIB; ?>/jquery-1.8.2.min.js'></script>
+        <script type='text/javascript'>
+            function showHide(id) {
+                jQuery("#"+id).click(function(){
+                    if(jQuery(this).attr('value')=='+') {
+                        jQuery("."+id+"_lista").show(700); 
+                        jQuery(this).attr({'value':'-'});
+                    } else {
+                        jQuery(this).attr({'value':'+'});
+                        jQuery("."+id+"_lista").hide('slow'); 
+                    }
+                });
+            }
+            jQuery(document).ready(function() {
+                showHide("hierarquia_pasta");
+                showHide("principais_arquivos");
+                showHide("possibilita_utilizacao");
+            });
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend><h1>Tutorial</h1></legend>
+            <p>
+                <strong>Atan</strong> &eacute; um <strong>Framework PHP Orientado a Objetos</strong> desenvolvido por <strong>Leandro Shindi Ekamoto</strong> e <strong>Robson Lopes de Oliveira.</strong>
+                Padr&atilde;o <strong>MVC(Model, View, Controller)</strong> e utiliza <strong>URLs amig&aacute;veis com mod_rewrite.</strong>
+            </p>
+            <p>
+                <strong>Classe e fun&ccedil;&otilde;es</strong> seguem o padr&atilde;o <strong>CamelCase</strong><i> ex: classExemplo()</i> e
+                <strong>nome vari&aacute;veis</strong> separadas por '_' <i>ex: $nome_variavel</i>
+            </p>
+            <p>
+                <br/>
+                <strong>Hierarquia de pastas &eacute; <input type="button" id="hierarquia_pasta" value="-" /></strong>
+            </p>    
+            <div class="hierarquia_pasta_lista"> 
+                <ul>
+                    <li><a href="" ><strong>Projeto</strong>(Nome da pasta projeto)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(8); ?><strong>App</strong>(Aplica&ccedil;&atilde;o)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(16); ?><strong>Controllers</strong>(Controladores da aplica&ccedil;&atilde;o)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>Componentes</strong>(Auxiliares dos controllers)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(16); ?><strong>Models</strong>(Representa as tabelas do banco de dados e suas respectivas valida&ccedil;&otilde;es e relacionamentos)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(16); ?><strong>Views</strong>(Representa nosso HTML)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>Helpers</strong>(S&atilde;o auxiliares das views)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>Home</strong>(Pasta que cont&eacute;m as views do controller Home)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>Index</strong>(Pasta que cont&eacute;m as views do controller Index)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>Layout</strong>(Pasta onde será guardado o layout)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>Tutorial</strong>(Tutorial Atan)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(16); ?><strong>Log</strong>(Pasta onde será armazenados os logs de erros do server)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(16); ?><strong>web-files</strong>(Pasta de arquivos da aplica&ccedil;&atilde;o)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>css</strong>(Arquivos CSS da aplica&ccedil;&atilde;o)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>images</strong>(Imagens da aplica&ccedil;&atilde;o)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>lib</strong>(Bibliotecas da aplica&ccedil;&atilde;o)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(32); ?><strong>scripts</strong>(Scripts da aplica&ccedil;&atilde;o)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(8); ?><strong>AtanCore</strong>(N&uacute;cleo do framework)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(8); ?><strong>web-files</strong>(Pasta de arquivos do projeto)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(16); ?><strong>css</strong>(Arquivos CSS do projeto)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(16); ?><strong>images</strong>(Imagens do projeto)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(16); ?><strong>lib</strong>(Bibliotecas do projeto)</a></li>
+                    <li><a href="" ><?= $this->addNbsp(16); ?><strong>scripts</strong>(Scripts da aplica&ccedil;&atilde;o)</a></li>
+                </ul>
+                <br/>
+            </div>
+            <p>
+                <strong>Principais arquivos s&atilde;o <input type="button" id="principais_arquivos" value="-" /></strong>
+            </p>
+            <div class="principais_arquivos_lista">
+                <ul>
+                    <li><a href="<?= URL; ?>/tutorial/htaccess">.htaccess</a></li>
+                    <li><a href="<?= URL; ?>/tutorial/indexAtan">indexAtan.php</a></li>
+                    <li><a href ="<?= URL; ?>/tutorial/classSystem">Class System()</a></li>
+                    <li><a href="<?= URL; ?>/tutorial/classController" >Class ControllerAtan()</a></li>
+                    <li><a href="<?= URL; ?>/tutorial/classModel" >Class ModelAtan()</a></li>
+                </ul>
+            </div>
+            <p>
+                <strong>Atan framework possibilita a utiliza&ccedil;&atilde;o de <input type="button" id="possibilita_utilizacao" value="-" /></strong>
+            </p>
+            <div class="possibilita_utilizacao_lista">
+                <ul>
+                    <li><a href="<?= URL; ?>/tutorial/helpers">Ajudantes <i>(Helpers) ajudante das views</i></a></li>
+                    <li><a href="<?= URL; ?>/tutorial/components">Componentes <i>(Components) auxiliar dos controllers. L&oacute;gica, regra de neg&oacute;cio ou fun&ccedil;&otilde;es</i></a></li>
+                    <li><a href ="<?= URL; ?>/tutorial/elements">Elementos <i>(Elements) trechos de c&oacute;digos html que podem ser utilizados em outras views</i></a></li>
+                </ul>
+            </div>
+        </fieldset>
+    </body>
+</html>

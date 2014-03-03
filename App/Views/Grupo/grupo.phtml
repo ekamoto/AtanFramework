@@ -1,0 +1,39 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+    die("Acesso negado");
+}
+?>
+<div class="conteudo">
+    <h1>Grupos</h1>
+    <br/>
+    <table class="tabela">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (isset($this->dados) && !empty($this->dados)):
+                foreach ($this->dados as $grupo):
+                    ?>
+                    <tr>
+                        <td><?php echo $grupo['id_grupo']; ?></td>
+                        <td><?php echo $grupo['nome']; ?></td>
+                        <td>
+                            <a href="<?php echo URL . '/admin/editar-grupo/id/' . $grupo['id_grupo']; ?>">Editar</a>/
+                            <a href="<?php echo URL . '/admin/deletar-grupo/id/' . $grupo['id_grupo']; ?>">Deletar</a>
+                        </td>
+                    </tr>
+                <?php endforeach;
+            endif; ?>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+    <br/>
+    <div class="botao_novo">Novo</div>
+    <br/><br/>
+</div>

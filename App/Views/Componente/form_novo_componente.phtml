@@ -1,0 +1,23 @@
+<?php
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5'])) {
+    die("Acesso negado");
+}
+?>
+<div class="conteudo">
+    <h1>Cadastro de componente</h1>
+    <div id="msg"></div>
+    <br/><br/>
+    <form id="form" name="form" method="POST">
+        <label>Nome:</label>
+        <input type="text" id="nome" name="nome" class="campos_obrigatorio"/>
+        <span id="msg_nome" class="msg_erro"></span><br/>
+        <label>Dt. Criação:</label>
+        <input type="text" size="10px" id="data_criacao" name="data_criacao" class="campos_obrigatorio data data_mascara"/>
+        <span id="msg_data_criacao" class="msg_erro"></span>
+        <br/>
+        <br/><br/>
+        <div class="botao_cadastrar">Cadastrar</div>
+        <div class="botao_voltar">Voltar</div>
+    </form>
+    <br/>
+</div>

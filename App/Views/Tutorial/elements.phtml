@@ -1,0 +1,21 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="<?= CSS; ?>/tutorial.css" />
+    </head>
+    <body>
+        <fieldset>
+            <legend><h1>Elements</h1></legend>
+            <a href="index">Voltar</a>
+            <p>S&atilde;o trechos de c&oacute;digo HTML que podem ser reaproveitados em outras views.</p>
+        </fieldset>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <link rel="stylesheet" type="text/css" href="<?= CSS; ?>/tutorial.css" />
+    </head>
+    <body>
+        <fieldset>
+            <legend><h1>classController</h1></legend>
+            <a href="index">Voltar</a>
+            <p>
+                &Eacute; a <strong>classe padr&atilde;o</strong> para todos os controllers, todos os controller criados <strong>devem ser extendidos dela</strong><br/><br/>
+                <strong>Exemplo:</strong> <i>class testeController extends ControllerAtan {}</i>
+            </p>
+            <strong>Possue os m&eacute;todos:</strong>
+            <ul>
+                <li>
+                    >>__construct() <i>(Ativa o construtor da classe System e verifica se existe model para esse controlador e se tiver inst&acirc;ncia e seta na variavel $model)</i>
+                </li>
+                <li>
+                    >>isPost <i>(Verifica se a requisi&ccedil;&atilde;o veio por POST)</i>
+                </li>
+                <li>
+                    >>isAjax <i>(Verifica se a requisi&ccedil;&atilde;o veio por Ajax)</i>
+                </li>
+                <li>
+                    >>view <i>(Inclui a view)</i>
+                </li>
+                <li>
+                    >>redirect <i>(Faz redirecionamento de arquivo, podendo passar um array com o controller e action desejada)</i>
+                </li>
+            </ul>
+            <p>
+                O objeto $model, quando instanciado, representa nossa tabela do banco de dados que tem a conex&atilde;o PDO e as fun&ccedil;&otilde;es gen&eacute;ricas
+                para inserir, alterar, deletar e listar.
+            </p>
+        </fieldset>
+    </body>
+</html>

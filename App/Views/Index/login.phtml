@@ -1,0 +1,64 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <title>Atan login</title>
+        <link type="text/css" href="<?= LAYOUT; ?>/style.css" rel="stylesheet" />
+        <link type="text/css" href="<?= LAYOUT; ?>/css/login.css" rel="stylesheet" />
+        <script type='text/javascript' src='<?= LAYOUT; ?>/js/jquery-1.4.2.min.js'></script>	<!-- jquery library -->
+        <script type='text/javascript'>
+            
+            
+        </script>
+
+        <!--[if IE 8]>
+                <script type='text/javascript' src='http://hello.amnesio.com/js/excanvas.js'></script>
+                <link rel="stylesheet" href="http://hello.amnesio.com/css/loginIEfix.css" type="text/css" media="screen" />
+        <![endif]--> 
+
+        <!--[if IE 7]>
+                <script type='text/javascript' src='http://hello.amnesio.com/js/excanvas.js'></script>
+                <link rel="stylesheet" href="http://hello.amnesio.com/css/loginIEfix.css" type="text/css" media="screen" />
+        <![endif]--> 
+
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <div id="line"></div>
+        <div id="background">
+            <div id="container">
+                <div id="logo">
+                    <!--<img src="../layout/assets/logologin.png" alt="Logo" />-->
+                </div>
+                <div id="box">
+                    <div id="erro"><?= (isset($view_problema) && isset($view_mensagem) ? $view_problema . ': ' . $view_mensagem : '') ?></div>
+                    <h1>Atan Tecnologia</h1>
+                    <form action="<?= URL . '/home'; ?>" method="post"> 
+                        <div class="one_half">
+                            <p>
+                                <input name="login" class="field" value="robson" />
+                            </p>
+                        </div>
+                        <div class="one_half last">
+                            <p>
+                                <input type="password" name="senha" class="field" value="123" />	
+                            </p>
+                            
+                            <p>
+                                <input type="submit" value="Login" class="login" />
+                            </p>
+                        </div>
+                    </form> 
+                </div> 
+            </div>
+        </div>
+    </body>
+</html>

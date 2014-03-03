@@ -1,0 +1,25 @@
+<?php
+
+if (!isset($GLOBALS['hashIdentificaIndexAtan']) || $GLOBALS['hashIdentificaIndexAtan'] != md5($GLOBALS['chave_md5']))
+{
+    die("Acesso negado");
+}
+
+?>
+<html>
+    <head><title>Teste</title></head>
+    
+    <body>
+        <?
+            $conteudo = $_GET['conteudo_url']; // print_r($dados); o próprio controller faz extract
+            $conteudo = explode('/', $conteudo);
+            
+            foreach ($conteudo as $key => $value) {
+                echo $value . '<br>'; 
+            }
+        ?>
+        <p>É nois palmeiras</p><!-- Que merda eim. k kkk kk k -->
+        
+        <a href="deslogar">Deslogar da parada</a>
+    </body>
+</html>
